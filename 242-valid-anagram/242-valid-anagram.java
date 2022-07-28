@@ -1,6 +1,10 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        if (s.length() != t.length()) {
+			return false;
+		}
+		
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
 		for (int i = 0; i < s.length(); i++) {
 			map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
 		}
