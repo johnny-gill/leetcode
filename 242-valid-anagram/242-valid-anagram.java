@@ -2,8 +2,7 @@ class Solution {
     public boolean isAnagram(String s, String t) {
         Map<Character, Integer> map = new HashMap<Character, Integer>();
 		for (int i = 0; i < s.length(); i++) {
-			int newValue = (map.get(s.charAt(i)) == null) ? 1 : (map.get(s.charAt(i)) + 1);
-			map.put(s.charAt(i), newValue);
+			map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
 		}
 		
 		for(int i = 0; i < t.length(); i++) {
@@ -18,7 +17,6 @@ class Solution {
 				return false;
 			}
 		}
-		
 		return true;
     }
 }
