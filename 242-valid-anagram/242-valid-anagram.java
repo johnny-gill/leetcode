@@ -4,23 +4,16 @@ class Solution {
 			return false;
 		}
 		
-		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		Map<Character, Integer> mapS = new HashMap<Character, Integer>();
 		for (char c : s.toCharArray()) {
-			map.put(c, map.getOrDefault(c, 0) + 1);
+			mapS.put(c, mapS.getOrDefault(c, 0) + 1);
 		}
 		
+		Map<Character, Integer> mapD = new HashMap<Character, Integer>();
 		for (char d : t.toCharArray()) {
-			if (map.get(d) == null) {
-				return false;
-			}
-			map.replace(d, map.get(d) - 1);
+			mapD.put(d, mapD.getOrDefault(d, 0) + 1);
 		}
-
-		for (int v : map.values()) {
-			if (v != 0) {
-				return false;
-			}
-		}
-		return true;
+		
+		return mapS.equals(mapD);
     }
 }
