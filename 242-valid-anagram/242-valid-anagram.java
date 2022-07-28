@@ -9,11 +9,11 @@ class Solution {
 			map.put(c, map.getOrDefault(c, 0) + 1);
 		}
 		
-		for(int i = 0; i < t.length(); i++) {
-			if (map.get(t.charAt(i)) == null) {
+		for (char d : t.toCharArray()) {
+			if (map.get(d) == null) {
 				return false;
 			}
-			map.put(t.charAt(i), map.get(t.charAt(i)) - 1);
+			map.put(d, map.get(d) - 1);
 		}
 		
 		for (int v : map.values()) {
