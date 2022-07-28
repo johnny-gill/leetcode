@@ -13,9 +13,9 @@ class Solution {
 			if (map.get(d) == null) {
 				return false;
 			}
-			map.put(d, map.get(d) - 1);
+			map.replace(d, map.get(d) - 1);
 		}
-		
+
 		for (int v : map.values()) {
 			if (v != 0) {
 				return false;
