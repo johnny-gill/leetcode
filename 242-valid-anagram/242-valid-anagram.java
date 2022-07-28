@@ -4,16 +4,21 @@ class Solution {
 			return false;
 		}
 		
-		Map<Character, Integer> mapS = new HashMap<Character, Integer>();
-		for (char c : s.toCharArray()) {
-			mapS.put(c, mapS.getOrDefault(c, 0) + 1);
+		final int alphabetSize = 26;
+		int[] alphabet = new int[alphabetSize];
+		
+		
+		for (int i = 0; i < s.length(); i++) {
+			alphabet[s.charAt(i) - 'a']++;
+			alphabet[t.charAt(i) - 'a']--;
 		}
 		
-		Map<Character, Integer> mapD = new HashMap<Character, Integer>();
-		for (char d : t.toCharArray()) {
-			mapD.put(d, mapD.getOrDefault(d, 0) + 1);
+		for (int i = 0; i < alphabetSize; i++) {
+			if (alphabet[i] != 0) {
+				return false;
+			}
 		}
 		
-		return mapS.equals(mapD);
+		return true;
     }
 }
