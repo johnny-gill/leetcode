@@ -5,8 +5,8 @@ class Solution {
 		}
 		
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
-		for (int i = 0; i < s.length(); i++) {
-			map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
+		for (char c : s.toCharArray()) {
+			map.put(c, map.getOrDefault(c, 0) + 1);
 		}
 		
 		for(int i = 0; i < t.length(); i++) {
