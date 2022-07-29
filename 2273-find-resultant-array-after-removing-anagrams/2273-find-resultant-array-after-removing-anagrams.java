@@ -1,5 +1,5 @@
 class Solution {
-    public static List<String> removeAnagrams(String[] words) {
+    public List<String> removeAnagrams(String[] words) {
 		Stack<String> stack = new Stack<>();
 		stack.push(words[0]);
 		
@@ -15,7 +15,7 @@ class Solution {
 		return result;
     }
 
-	private static boolean chkAnagrams(String left, String right) {
+	private boolean chkAnagrams(String left, String right) {
 		if (left.length() != right.length()) {
 			return false;
 		}
