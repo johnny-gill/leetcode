@@ -7,10 +7,8 @@ class Solution {
 			return result;
 		}
 
-		int[] patternArr = getPattern(pattern);
 		for (String word : words) {
-			int[] wordArr = getPattern(word);
-			if (Arrays.equals(patternArr, wordArr)) {
+			if (isSameArray(word, pattern)) {
 				result.add(word);
 			}
 		}
@@ -18,16 +16,12 @@ class Solution {
         return result;
     }
 	
-	public int[] getPattern(String word) {
-		int[] wordArr = new int[word.length()];
-		Map<Character, Integer> alphaMap = new HashMap<>();
-		
-		for (int i = 0; i < wordArr.length; i++) {
-			char c = word.charAt(i);
-			alphaMap.putIfAbsent(c, i);
-			wordArr[i] = alphaMap.get(c);
+	private boolean isSameArray(String word, String pattern) {
+		for (int i = 0; i < word.length(); i++) {
+			if (word.indexOf(word.charAt(i)) != pattern.indexOf(pattern.charAt(i))) {
+				return false;
+			}
 		}
-		
-		return wordArr;
+		return true;
 	}
 }
