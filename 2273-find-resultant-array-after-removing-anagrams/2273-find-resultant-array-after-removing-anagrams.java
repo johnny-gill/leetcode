@@ -1,12 +1,13 @@
 class Solution {
     public static List<String> removeAnagrams(String[] words) {
 		List<String> result = new ArrayList<>();
-		
+		int resultSize = 1;
 		result.add(words[0]);
+		
 		for (int i = 1; i < words.length; i++) {
-			
-			if (!chkAnagrams(result.get(result.size() - 1), words[i])) {
+			if (!chkAnagrams(result.get(resultSize - 1), words[i])) {
 				result.add(words[i]);
+				resultSize++;
 			}
 		}
 		
