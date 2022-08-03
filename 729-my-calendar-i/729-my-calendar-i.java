@@ -1,25 +1,19 @@
 import java.util.Map.Entry;
 class MyCalendar {
 
-   private final Map<Integer, Integer> map;
+   private final List<int[]> list;
 	public MyCalendar() {
-		map = new HashMap<>();
+		list = new ArrayList<>();
     }
     
     public boolean book(int start, int end) {
-    	boolean result = true;
-    	for (Entry<Integer, Integer> entry : map.entrySet()) {
-    		if(!(end <= entry.getKey() || entry.getValue() <= start)) {
-    			result = false;
-    			break;
+    	for (int[] temp : list) {
+    		if(!(end <= temp[0] || temp[1] <= start)) {
+    			return false;
     		}
 		}
-    		
-    	if (result) {
-        	map.put(start, end);
-    	}
-    	
-    	return result;
+    	list.add(new int[] {start, end});
+    	return true;
     }
 }
 
