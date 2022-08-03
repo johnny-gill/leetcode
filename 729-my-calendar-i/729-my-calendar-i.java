@@ -1,24 +1,22 @@
+import java.util.Map.Entry;
 class MyCalendar {
 
-    private final List<Map<String, Integer>> list;
+   private final Map<Integer, Integer> map;
 	public MyCalendar() {
-		list = new ArrayList<>();
+		map = new HashMap<>();
     }
     
     public boolean book(int start, int end) {
     	boolean result = true;
-    	for (Map<String, Integer> m : list) {
-    		if(!(end <= m.get("s") || m.get("e") <= start)) {
+    	for (Entry<Integer, Integer> entry : map.entrySet()) {
+    		if(!(end <= entry.getKey() || entry.getValue() <= start)) {
     			result = false;
     			break;
     		}
 		}
-
+    		
     	if (result) {
-    		Map<String, Integer> map = new HashMap<>();
-        	map.put("s", start);
-        	map.put("e", end);
-        	list.add(map);
+        	map.put(start, end);
     	}
     	
     	return result;
